@@ -1,0 +1,93 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.postsInfo {
+  width: 50%;
+  float: none;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.filterLinks {
+  font-size: 13px;
+  line-height: 23px;
+  float: left;
+  padding-right: 50px;
+  margin-right: 50px;
+}
+
+.filterLinks .nav {
+  margin: 0 -13px;
+}
+
+.filterLinks .nav > li {
+  padding: 0 13px;
+  display: inline-block;
+}
+
+.filterLinks .nav > li > a {
+  padding: 2px 0 0;
+}
+
+.filterLinks .nav > li > a:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 0;
+  height: 1px;
+  background-color: #1da1f2;
+  transition: width 0.25s ease-in-out;
+}
+
+.filterLinks .nav > li.active > a:before {
+  width: 22px;
+}
+
+.filterLinks .nav > li > a:hover:before {
+  width: 100%;
+}
+.nav > li > a:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 0;
+  height: 1px;
+  background-color: #1da1f2;
+  transition: width 0.25s ease-in-out;
+  font-family: "Raleway", sans-serif;
+}
+.filterLinks .nav > li.active > a:before {
+  width: 22px;
+}
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding-right: 15px;
+}
+
+.postHeader {
+  display: inline-block;
+  align-items: flex-start;
+}
+
+.postInfo {
+  display: flex;
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+  border-right: 1px solid #e5e5e5;
+  overflow: hidden;
+  color: #555;
+  font-weight: 500;
+  font-size: 14px;
+}
+.count {
+  padding-left: 10px;
+  color: red;
+}
