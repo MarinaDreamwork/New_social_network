@@ -5,11 +5,6 @@
 }
 
 .postsInfo {
-  width: 50%;
-  float: none;
-  margin-top: 24px;
-  padding-top: 24px;
-  border-top: 1px solid #e5e5e5;
 }
 
 .filterLinks {
@@ -75,10 +70,12 @@
 .postHeader {
   display: inline-block;
   align-items: flex-start;
+  padding: 20px;
 }
 
 .postInfo {
   display: flex;
+  justify-content: center;
   padding: 15px;
   border-bottom: 1px solid #e5e5e5;
   border-right: 1px solid #e5e5e5;
@@ -90,4 +87,8 @@
 .count {
   padding-left: 10px;
   color: red;
+}
+
+.mainPostInfo {
+  text-align: start;
 }

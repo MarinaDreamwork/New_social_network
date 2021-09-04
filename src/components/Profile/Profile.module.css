@@ -1,20 +1,14 @@
-.container {
-  position: relative;
-}
-
-.profile {
+.coverHeader {
   background-image: url(https://www.townoffrisco.com/wp-content/uploads/2021/07/Promenade-with-Flowers_Credit-Todd-Powell_2560x864.jpg);
+  background-repeat: no-repeat;
   text-align: center;
   color: rgba(0, 0, 0, 0.1);
-}
-
-.coverHead {
   padding-top: 80px;
   padding-top: 215px;
   color: #999;
   background-size: 100% 300px;
   background-position: center top;
-  opacity: 0.6;
+  opacity: 1;
   background-color: #fff;
 }
 
@@ -24,7 +18,7 @@
   margin-bottom: 12px;
   padding: 5px;
   z-index: 0;
-  opacity: 0.3;
+  opacity: 1;
 }
 
 .coverAvatar:before {
@@ -41,10 +35,6 @@
   background-color: #1da1f2;
   border: 2px solid #fff;
   border-radius: 50%;
-  opacity: 0;
-}
-
-.coverAvatar.online:after {
   opacity: 1;
 }
 

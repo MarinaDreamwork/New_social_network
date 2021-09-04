@@ -1,21 +1,21 @@
 .container {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
 }
 
 .postsInfo {
+  display: block;
+  justify-content: center;
   width: 50%;
-  float: none;
   margin-top: 24px;
   padding-top: 24px;
-  border-top: 1px solid #e5e5e5;
+  border: 1px solid #e5e5e5;
+  margin: auto;
+  float: none;
 }
 
 .filterLinks {
   font-size: 13px;
   line-height: 23px;
-  float: left;
+  float: center;
   padding-right: 50px;
   margin-right: 50px;
 }
