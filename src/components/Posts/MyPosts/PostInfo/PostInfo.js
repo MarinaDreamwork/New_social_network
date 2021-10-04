@@ -1,7 +1,7 @@
 import React from 'react';
-import classes from './Post.module.css';
+import classes from './PostInfo.module.css';
 
-const Post = (props) => {
+const PostInfo = (props) => {
   return (
    <div className={classes.postInfo}> 
         <div className={classes.postHeader}>
@@ -18,4 +18,4 @@ const Post = (props) => {
   )
 }
 
-export default Post;
+export default PostInfo;

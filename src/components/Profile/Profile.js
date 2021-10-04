@@ -1,28 +1,68 @@
 import React from 'react';
-import MyPosts from './MyPosts/MyPosts';
 import classes from './Profile.module.css';
 
 const Profile = (props) => {
   return (
-        <div class={classes.coverHeader}>
-            <div class={classes.container}>
-                <div class={classes.coverAvatar}>
-                    <img src="https://img.freepik.com/free-photo/close-up-shot-pretty-woman-with-perfect-teeth-dark-clean-skin-having-rest-indoors-smiling-happily-after-received-good-positive-news_273609-1248.jpg?size=626&ext=jpg" alt="avatar" />
+        <div className={classes.profile}>
+            <div className={classes.chapter}>
+                <div className={classes.heading}>
+                About Me <i class="fas fa-chevron-right"></i>
                 </div>
-
-                <div class={classes.coverUserName}>
-                    <h2 class={classes.name}>Eileen K. Ruiz</h2>
+                <div className={classes.subheading}>
+                    Full Name : 
                 </div>
-
-                <div class={classes.coverUserActivity}>
-                    <p><i class="fas fa-clock"></i> Active 1 year 9 monts ago</p>
+                <div className={classes.subheading}>
+                    Skill :
                 </div>
-
-                <div class={classes.coverUserDesc}> 
-                    <p>Hello everyone ! There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+                <div className={classes.subheading}>
+                    Date of Birth :
                 </div>
-            </div>
-             <MyPosts />
+             </div>
+            <div className={classes.chapter}>
+                <div className={classes.heading}>
+                Biography <i class="fas fa-chevron-right"></i>
+                </div>
+                <div className={classes.text}>
+                    <p>Hello ! I’m Eileen K. Ruiz. Senior web developer of themelooks.com from last 5 years many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing</p> 
+                </div>
+             </div>
+            <div className={classes.chapter}>
+                <div className={classes.heading}>
+                Work Experience <i class="fas fa-chevron-right"></i>
+                </div>
+                <div className={classes.subheading}>
+                    Job Title 1 
+                    <p className={classes.text}>
+                         Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                    </p>
+                </div>
+                <div className={classes.subheading}>
+                    Job Title 2
+                    <p className={classes.text}>
+                        Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                    </p>
+                </div>
+                <div className={classes.subheading}>
+                    Job Title 3
+                    <p className={classes.text}>
+                        Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                    </p>
+                </div>
+             </div>
+            <div className={classes.chapter}>
+                <div className={classes.heading}>
+                Contact <i class="fas fa-chevron-right"></i>
+                </div>
+                <div className={classes.subheading}>
+                    <p>Phone: <span>+1610-559-8246</span></p> 
+                </div>
+                <div className={classes.subheading}>
+                    <p>E-mail: <span>demo@example.com</span></p> 
+                </div>
+                <div className={classes.subheading}>
+                    <p>Address: <span>123 Lorem St., California, United States</span></p> 
+                </div>
+             </div>
         </div>  
   )
 }

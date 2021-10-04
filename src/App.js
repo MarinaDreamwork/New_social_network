@@ -10,25 +10,33 @@ import Header from './components/Header/Header';
 import Media from './components/Media/Media';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
+import MainPage from './components/MainPage/MainPage';
+import Posts from './components/Posts/Posts';
+
 
 const App = (props) => {
+ debugger;
   return (
-  <div className='app-wrapper'>
     <BrowserRouter>
-      <div>
+      <div className='app-wrapper'>
         <Header />
         <Navbar />
+        <MainPage />
         <div className='app-wrapper-content'>
-          <Route path='/profile' component={Profile} />
-          <Route path='/dialogs' component={Dialogs} />
-          <Route path='/friends' component={Friends} />
-          <Route path='/groups' component={Groups} />
-          <Route path='/forum' component={Forum} />
-          <Route path='/media' component={Media} />
+          <Route path='/profile' render={() => <Profile />} />
+          <Route path='/dialogs' render={() => <Dialogs 
+          state={props.state.dialogsPage} />} /> 
+          <Route path='/posts' render={() => <Posts 
+          updateNewPostText={props.updateNewPostText}
+          postsPage={props.state.postsPage}
+          addPost={props.addPost}/>} />
+          <Route path='/friends' render={() => <Friends state={props.state.friendsPage}/>} />
+          <Route path='/groups' render={() => <Groups />} />
+          <Route path='/forum' render={() => <Forum /> } />
+          <Route path='/media' render={() => <Media />} />
         </div>
-        </div>
+      </div>
      </BrowserRouter>
-  </div>
   );
 }
 

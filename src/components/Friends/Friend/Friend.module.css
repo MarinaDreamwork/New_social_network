@@ -1,0 +1,13 @@
+.userProfile {
+  display: inline-start;
+  text-align: center;
+  background-color: rgb(243, 241, 241);
+  padding: 10px;
+  margin: 10px;
+}
+
+.userProfile:hover {
+  background-color: #fff;
+  box-shadow: 10px 5px 5px rgb(202, 192, 192);
+  transition: 0.8s;
+}

@@ -8,22 +8,25 @@ const Navbar = (props) => {
         
               <nav className={`${classes.contentNav} ${classes.nav}`}>
                   <div>
-                    <NavLink to="/profile">Profile</NavLink>
+                    <NavLink to="/profile" activeClassName={classes.active}>Profile</NavLink>
                   </div>
                   <div>
                     <NavLink to="/dialogs" activeClassName={classes.active}>Dialogs</NavLink>
                   </div>
                   <div>
-                    <a href='/friends'>Friends</a>
+                    <NavLink to="/posts" activeClassName={classes.active}>Posts</NavLink>
                   </div>
                   <div>
-                    <a href='/groups'>Groups</a>
+                    <NavLink to='/friends' activeClassName={classes.active}>Friends</NavLink>
                   </div>
                   <div>
-                    <a href='/forum'>Forum</a>
+                    <NavLink to='/groups' activeClassName={classes.active}>Groups</NavLink>
                   </div>
                   <div>
-                    <a href='/media'>Media</a>
+                    <NavLink to='/forum' activeClassName={classes.active}>Forum</NavLink>
+                  </div>
+                  <div>
+                    <NavLink to='/media' activeClassName={classes.active}>Media</NavLink>
                   </div>
               </nav>
           </div>

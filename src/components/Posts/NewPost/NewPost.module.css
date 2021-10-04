@@ -1,0 +1,20 @@
+.newPostArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 15px;
+  margin: 10px;
+}
+
+.text {
+  height: 50px;
+  width: 300px;
+  padding-right: 20px;
+  margin-right: 20px;
+}
+.btn {
+  height: 25px;
+  width: 70px;
+  text-align: center;
+}

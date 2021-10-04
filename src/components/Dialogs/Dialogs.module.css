@@ -1,1 +1,33 @@
+.dialogs {
+  display: flex;
+  margin: auto;
+  width: 50%;
+  justify-content: center;
+  border: 1px solid rgb(219, 216, 216);
+  align-items: center;
+}
 
+.users {
+  padding: 20px;
+}
+
+.dialogItems {
+  padding: 20px;
+}
+
+.user {
+  padding: 20px;
+}
+
+.dialog {
+  padding: 5px;
+  border: 0.5px solid rgb(226, 220, 220);
+  border-radius: 20px;
+  margin: 15px;
+}
+.avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  padding-right: 10px;
+}
