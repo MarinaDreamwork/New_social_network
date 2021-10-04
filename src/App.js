@@ -25,12 +25,12 @@ const App = (props) => {
         <div className='app-wrapper-content'>
           <Route path='/profile' render={() => <Profile />} />
           <Route path='/dialogs' render={() => <Dialogs 
-          state={props.state.dialogsPage} />} /> 
+          store={props.store.getState().dialogsPage} />} /> 
           <Route path='/posts' render={() => <Posts 
-          updateNewPostText={props.updateNewPostText}
-          postsPage={props.state.postsPage}
-          addPost={props.addPost}/>} />
-          <Route path='/friends' render={() => <Friends state={props.state.friendsPage}/>} />
+          updateNewPostText={props.store.updateNewPostText}
+          postsPage={props.store.getState().postsPage}
+          addPost={props.store.addPost}/>} />
+          <Route path='/friends' render={() => <Friends store={props.store.getState().friendsPage}/>} />
           <Route path='/groups' render={() => <Groups />} />
           <Route path='/forum' render={() => <Forum /> } />
           <Route path='/media' render={() => <Media />} />

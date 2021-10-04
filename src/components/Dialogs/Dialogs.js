@@ -5,12 +5,12 @@ import Message from './Message/Message';
 import NewPost from '../Posts/NewPost/NewPost';
 
 
-const Dialogs = (props) => {
+const Dialogs = ({store}) => {
 
-let dialogsElements = props.state.dialogsData
+let dialogsElements = store.dialogsData
 .map(dialog => <DialogItem name={dialog.name} id={dialog.id} />);
 
-let messagesElements = props.state.messagesData.map(message => <Message text={message.text} src={message.img}/>);
+let messagesElements = store.messagesData.map(message => <Message text={message.text} src={message.img}/>);
 
   return (
     <div className={classes.dialogs}>
