@@ -8,8 +8,8 @@ const Posts = (props) => {
 debugger;
   return (
         <div>
-            <NewPost addPost={props.addPost} newPostText={props.postsPage.newPostText} updateNewPostText={props.updateNewPostText}/>
-            <MyPosts postsData={props.postsPage.postsData} />
+            <NewPost addPost={props.addPost} newPostText={props.newPostText} updateNewPostText={props.updateNewPostText} store={props.store}/>
+            <MyPosts postsData={props.store.postsPage.postsData} />
         </div>  
   )
 }

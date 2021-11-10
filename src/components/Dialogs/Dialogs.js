@@ -23,7 +23,7 @@ let messagesElements = store.messagesData.map(message => <Message text={message.
           {messagesElements}
         </div>
         <div>
-          <NewPost />
+          <NewPost store={store}/>
         </div>
       </div>
     </div>

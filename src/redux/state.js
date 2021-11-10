@@ -1,4 +1,5 @@
 let store = {
+
   _state: {
     postsPage: {
       newPostText: 'abrakadabra',
@@ -36,12 +37,12 @@ let store = {
     ]
   },
 
-  getState() {
-    return this._state;
+  _callSubscriber () {
+    console.log('Rerender page');
   },
 
-  rerenderEntirePage () {
-  console.log('Rerender page');
+  getState() {
+    return this._state;
   },
 
   addPost () {
@@ -54,16 +55,16 @@ let store = {
 
     this._state.postsPage.postsData.push(newPost);
     this._state.postsPage.newPostText = '';
-    this.rerenderEntirePage(this._state);
+    this._callSubscriber(this._state);
   },
 
   updateNewPostText (newText) {
     this._state.postsPage.newPostText = newText;
-    this.rerenderEntirePage(this._state);
+    this._callSubscriber(this._state);
   },
 
   subscribe (observer) {
-    this.rerenderEntirePage = observer;
+    this._callSubscriber = observer;
   },
 
 };

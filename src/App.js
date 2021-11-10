@@ -27,9 +27,9 @@ const App = (props) => {
           <Route path='/dialogs' render={() => <Dialogs 
           store={props.store.getState().dialogsPage} />} /> 
           <Route path='/posts' render={() => <Posts 
-          updateNewPostText={props.store.updateNewPostText}
-          postsPage={props.store.getState().postsPage}
-          addPost={props.store.addPost}/>} />
+          updateNewPostText={props.updateNewPostText}
+          store={props.store.getState()}
+          addPost={props.addPost}/>} />
           <Route path='/friends' render={() => <Friends store={props.store.getState().friendsPage}/>} />
           <Route path='/groups' render={() => <Groups />} />
           <Route path='/forum' render={() => <Forum /> } />

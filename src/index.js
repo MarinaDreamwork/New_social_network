@@ -9,7 +9,10 @@ import App from './App';
 let rerenderEntirePage = (state) => {
 ReactDOM.render(
   <React.StrictMode>
-    <App store={store}/>
+    <App state={store.getState()} 
+         store={store} 
+         addPost={store.addPost.bind(store)}
+         updateNewPostText={store.updateNewPostText.bind(store)}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
