@@ -5,12 +5,13 @@ import Message from './Message/Message';
 import NewPost from '../Posts/NewPost/NewPost';
 
 
-const Dialogs = ({store}) => {
+const Dialogs = (props) => {
+  debugger;
 
-let dialogsElements = store.dialogsData
+let dialogsElements = props.store.dialogsData
 .map(dialog => <DialogItem name={dialog.name} id={dialog.id} />);
 
-let messagesElements = store.messagesData.map(message => <Message text={message.text} src={message.img}/>);
+let messagesElements = props.store.messagesData.map(message => <Message text={message.text} src={message.img}/>);
 
   return (
     <div className={classes.dialogs}>
@@ -23,7 +24,7 @@ let messagesElements = store.messagesData.map(message => <Message text={message.
           {messagesElements}
         </div>
         <div>
-          <NewPost store={store}/>
+          <NewPost store={props.store} dispatch={props.dispatch}/>
         </div>
       </div>
     </div>

@@ -1,24 +1,26 @@
 import s from './NewPost.module.css';
 import React from 'react';
-
-const NewPost = ({store}) => {
+import { addNewPostActionCreator, updateNewPostTextActionCreator } from '../../../redux/state';
+  
+const NewPost = (props) => {
+  
 
   let newPostElement = React.createRef();
 
   let addNewPost = () => {
-    let text = newPostElement.current.value;
-    store.addPost(text);
-    store.updateNewPostText(''); 
+    //let text = newPostElement.current.value;
+    props.dispatch(addNewPostActionCreator());
+    //store.updateNewPostText(''); 
   };
 
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    store.updateNewPostText(text);
+    props.dispatch(updateNewPostTextActionCreator(text));
   };
   
   return (
   <div className={s.newPostArea}>
-    <textarea className={s.text} ref={newPostElement} value={store.newPostText} onChange={onPostChange} />
+    <textarea className={s.text} ref={newPostElement} value={props.newPostText} onChange={onPostChange} />
     <button className={s.btn} onClick={addNewPost}>Post</button>
   </div>
   )

@@ -1,3 +1,18 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'; 
+
+export const addNewPostActionCreator = () => {
+  return {
+    type: ADD_POST,
+  };  
+};
+
+export const updateNewPostTextActionCreator = (text) => {
+  return {
+    type: UPDATE_NEW_POST_TEXT, newText: text,
+  };
+};
+
 let store = {
 
   _state: {
@@ -45,27 +60,48 @@ let store = {
     return this._state;
   },
 
-  addPost () {
-    let newPost = {
-    id: 5,
-    message: this._state.postsPage.newPostText,
-    count: 0,
-    time: 'now'
-    };
+  // addPost () {
+  //   let newPost = {
+  //   id: 5,
+  //   message: this._state.postsPage.newPostText,
+  //   count: 0,
+  //   time: 'now'
+  //   };
 
-    this._state.postsPage.postsData.push(newPost);
-    this._state.postsPage.newPostText = '';
-    this._callSubscriber(this._state);
-  },
+  //   this._state.postsPage.postsData.push(newPost);
+  //   this._state.postsPage.newPostText = '';
+  //   this._callSubscriber(this._state);
+  // },
 
-  updateNewPostText (newText) {
-    this._state.postsPage.newPostText = newText;
-    this._callSubscriber(this._state);
-  },
+  // updateNewPostText (newText) {
+  //   this._state.postsPage.newPostText = newText;
+  //   this._callSubscriber(this._state);
+  // },
 
   subscribe (observer) {
     this._callSubscriber = observer;
   },
+
+  dispatch(action) {
+    if (action.type === ADD_POST) {
+      let newPost = {
+        id: 5,
+        message: this._state.postsPage.newPostText,
+        count: 0,
+        time: 'now'
+      };
+
+      this._state.postsPage.postsData.push(newPost);
+      this._state.postsPage.newPostText = '';
+      this._callSubscriber(this._state);
+
+    } else if(action.type === UPDATE_NEW_POST_TEXT) {
+
+      this._state.postsPage.newPostText = action.newText;
+      this._callSubscriber(this._state);
+      
+    }
+  }
 
 };
 

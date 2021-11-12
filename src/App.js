@@ -25,11 +25,11 @@ const App = (props) => {
         <div className='app-wrapper-content'>
           <Route path='/profile' render={() => <Profile />} />
           <Route path='/dialogs' render={() => <Dialogs 
-          store={props.store.getState().dialogsPage} />} /> 
+          store={props.store.getState().dialogsPage} 
+          dispatch={props.dispatch}/>} /> 
           <Route path='/posts' render={() => <Posts 
-          updateNewPostText={props.updateNewPostText}
           store={props.store.getState()}
-          addPost={props.addPost}/>} />
+          dispatch={props.dispatch}/>} />
           <Route path='/friends' render={() => <Friends store={props.store.getState().friendsPage}/>} />
           <Route path='/groups' render={() => <Groups />} />
           <Route path='/forum' render={() => <Forum /> } />
