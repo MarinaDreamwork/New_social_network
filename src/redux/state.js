@@ -1,5 +1,7 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'; 
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
 
 export const addNewPostActionCreator = () => {
   return {
@@ -10,6 +12,18 @@ export const addNewPostActionCreator = () => {
 export const updateNewPostTextActionCreator = (text) => {
   return {
     type: UPDATE_NEW_POST_TEXT, newText: text,
+  };
+};
+
+export const addNewMessageActionCreator = () => {
+  return {
+    type: ADD_MESSAGE,
+  };  
+};
+
+export const updateNewMessageTextActionCreator = (messageText) => {
+  return {
+    type: UPDATE_NEW_MESSAGE_TEXT, newMessage: messageText,
   };
 };
 
@@ -34,8 +48,10 @@ let store = {
         {id: 1, img: 'https://img.freepik.com/free-photo/close-up-shot-pretty-woman-with-perfect-teeth-dark-clean-skin-having-rest-indoors-smiling-happily-after-received-good-positive-news_273609-1248.jpg?size=626&ext=jpg', text: 'Hello, how are things?'},
         {id: 2, img: 'https://cdn.pixabay.com/photo/2016/05/10/02/09/blue-1382940__340.jpg', text: 'Hi, all is great!'},
         {id: 3, img: 'https://img.freepik.com/free-photo/close-up-shot-pretty-woman-with-perfect-teeth-dark-clean-skin-having-rest-indoors-smiling-happily-after-received-good-positive-news_273609-1248.jpg?size=626&ext=jpg', text: 'So fine! Happy for you!'}
-      ]
+      ],
+      newMessageText: '',
     },
+
     friendsPage: [
       {id: 1, img: 'https://cdn.pixabay.com/photo/2017/08/01/08/29/woman-2563491__340.jpg', name: 'Daisy Walker', activity: 'Active 3 monts ago'},
       {id: 2, img: 'https://cdn.pixabay.com/photo/2015/09/02/13/24/girl-919048__340.jpg', name: 'Melody Fletcher', activity: 'Active 2 days ago'},
@@ -60,24 +76,6 @@ let store = {
     return this._state;
   },
 
-  // addPost () {
-  //   let newPost = {
-  //   id: 5,
-  //   message: this._state.postsPage.newPostText,
-  //   count: 0,
-  //   time: 'now'
-  //   };
-
-  //   this._state.postsPage.postsData.push(newPost);
-  //   this._state.postsPage.newPostText = '';
-  //   this._callSubscriber(this._state);
-  // },
-
-  // updateNewPostText (newText) {
-  //   this._state.postsPage.newPostText = newText;
-  //   this._callSubscriber(this._state);
-  // },
-
   subscribe (observer) {
     this._callSubscriber = observer;
   },
@@ -98,6 +96,22 @@ let store = {
     } else if(action.type === UPDATE_NEW_POST_TEXT) {
 
       this._state.postsPage.newPostText = action.newText;
+      this._callSubscriber(this._state);
+      
+    } else if (action.type === ADD_MESSAGE) {
+      let newMessage = {
+        id: 4,
+        img: 'https://img.freepik.com/free-photo/close-up-shot-pretty-woman-with-perfect-teeth-dark-clean-skin-having-rest-indoors-smiling-happily-after-received-good-positive-news_273609-1248.jpg?size=626&ext=jpg',
+        text: this._state.dialogsPage.newMessageText,
+      };
+
+      this._state.dialogsPage.messagesData.push(newMessage);
+      this._state.dialogsPage.newMessageText = '';
+      this._callSubscriber(this._state);  
+
+    } else if(action.type === UPDATE_NEW_MESSAGE_TEXT) {
+
+      this._state.dialogsPage.newMessageText = action.newMessage;
       this._callSubscriber(this._state);
       
     }
