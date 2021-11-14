@@ -1,31 +1,6 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'; 
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
-
-export const addNewPostActionCreator = () => {
-  return {
-    type: ADD_POST,
-  };  
-};
-
-export const updateNewPostTextActionCreator = (text) => {
-  return {
-    type: UPDATE_NEW_POST_TEXT, newText: text,
-  };
-};
-
-export const addNewMessageActionCreator = () => {
-  return {
-    type: ADD_MESSAGE,
-  };  
-};
-
-export const updateNewMessageTextActionCreator = (messageText) => {
-  return {
-    type: UPDATE_NEW_MESSAGE_TEXT, newMessage: messageText,
-  };
-};
+import dialogsReducer from "./dialogsReducer";
+import friendsReducer from "./friendsReducer";
+import postsReducer from "./postsReducer";
 
 let store = {
 
@@ -81,42 +56,14 @@ let store = {
   },
 
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      let newPost = {
-        id: 5,
-        message: this._state.postsPage.newPostText,
-        count: 0,
-        time: 'now'
-      };
 
-      this._state.postsPage.postsData.push(newPost);
-      this._state.postsPage.newPostText = '';
-      this._callSubscriber(this._state);
+    this._state.postsPage = postsReducer(this._state.postsPage, action);
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+    this._state.friendsPage = friendsReducer(this._state.friendsPage, action);
 
-    } else if(action.type === UPDATE_NEW_POST_TEXT) {
-
-      this._state.postsPage.newPostText = action.newText;
-      this._callSubscriber(this._state);
-      
-    } else if (action.type === ADD_MESSAGE) {
-      let newMessage = {
-        id: 4,
-        img: 'https://img.freepik.com/free-photo/close-up-shot-pretty-woman-with-perfect-teeth-dark-clean-skin-having-rest-indoors-smiling-happily-after-received-good-positive-news_273609-1248.jpg?size=626&ext=jpg',
-        text: this._state.dialogsPage.newMessageText,
-      };
-
-      this._state.dialogsPage.messagesData.push(newMessage);
-      this._state.dialogsPage.newMessageText = '';
-      this._callSubscriber(this._state);  
-
-    } else if(action.type === UPDATE_NEW_MESSAGE_TEXT) {
-
-      this._state.dialogsPage.newMessageText = action.newMessage;
-      this._callSubscriber(this._state);
-      
-    }
+    this._callSubscriber(this._state);
+   
   }
-
 };
 
   export default store;
