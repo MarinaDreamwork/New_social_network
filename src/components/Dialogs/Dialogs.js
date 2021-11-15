@@ -7,23 +7,23 @@ import { addNewMessageActionCreator, updateNewMessageTextActionCreator } from '.
 
 
 const Dialogs = (props) => {
+ 
 debugger;
 
-let dialogsElements = props.store.dialogsData.map(d => <DialogItem name={d.name} id={d.id} />);
+let dialogsElements = props.state.dialogsData.map(d => <DialogItem name={d.name} id={d.id} />);
 
-let messagesElements = props.store.messagesData.map(message => <Message text={message.text} src={message.img}/>);
+let messagesElements = props.state.messagesData.map(message => <Message text={message.text} src={message.img}/>);
 
-let newMessageText = props.store.newMessageText;
+let newMessageText = props.state.newMessageText;
 
 let onSendMessageClick = () => {
-  debugger;
-  props.dispatch(addNewMessageActionCreator());
+
+  props.sendMessageClick();
 };
 
 let onNewMessageChange = (event) => {
-  debugger;
   let messageText = event.target.value;
-  props.dispatch(updateNewMessageTextActionCreator(messageText));
+  props.newMessageChange(messageText);
 };
 
   return (

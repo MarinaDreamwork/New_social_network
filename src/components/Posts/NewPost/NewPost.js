@@ -1,21 +1,20 @@
 import s from './NewPost.module.css';
 import React from 'react';
-import { addNewPostActionCreator, updateNewPostTextActionCreator } from '../../../redux/postsReducer';
   
 const NewPost = (props) => {
-  
-
+  debugger;
   let newPostElement = React.createRef();
 
   let addNewPost = () => {
-    //let text = newPostElement.current.value;
-    props.dispatch(addNewPostActionCreator());
+    //props.dispatch(addNewPostActionCreator());
     //store.updateNewPostText(''); 
+    props.addPost();
   };
 
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    props.dispatch(updateNewPostTextActionCreator(text));
+    // props.dispatch(updateNewPostTextActionCreator(text));
+    props.updatePost(text);
   };
   
   return (

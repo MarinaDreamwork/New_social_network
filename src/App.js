@@ -2,7 +2,6 @@ import React from 'react';
 import { Route } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
-import Dialogs from './components/Dialogs/Dialogs';
 import Forum from './components/Forum/Forum';
 import Friends from './components/Friends/Friends';
 import Groups from './components/Groups/Groups';
@@ -12,6 +11,7 @@ import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import MainPage from './components/MainPage/MainPage';
 import Posts from './components/Posts/Posts';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 
 const App = (props) => {
@@ -24,12 +24,10 @@ const App = (props) => {
         <MainPage />
         <div className='app-wrapper-content'>
           <Route path='/profile' render={() => <Profile />} />
-          <Route path='/dialogs' render={() => <Dialogs 
-          store={props.store.getState().dialogsPage} 
-          dispatch={props.dispatch}/>} /> 
+          <Route path='/dialogs' render={() => <DialogsContainer 
+          store={props.store}/>} /> 
           <Route path='/posts' render={() => <Posts 
-          store={props.store.getState()}
-          dispatch={props.dispatch}/>} />
+          store={props.store}/>} />
           <Route path='/friends' render={() => <Friends store={props.store.getState().friendsPage}/>} />
           <Route path='/groups' render={() => <Groups />} />
           <Route path='/forum' render={() => <Forum /> } />
