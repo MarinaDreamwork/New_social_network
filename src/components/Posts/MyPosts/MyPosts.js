@@ -5,7 +5,7 @@ import PostInfo from './PostInfo/PostInfo';
 
 const MyPosts = (props) => {
   
-    let postsElements = props.postsData.map(post => <PostInfo message = {post.message} count={post.count} time={post.time}/>);
+    let postsElements = props.store.map(post => <PostInfo message = {post.message} count={post.count} time={post.time}/>);
 
       return (
         <div className={classes.postsInfo}>

@@ -12,10 +12,11 @@ import Profile from './components/Profile/Profile';
 import MainPage from './components/MainPage/MainPage';
 import Posts from './components/Posts/Posts';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
+import FriendsContainer from './components/Friends/FriendsContainer';
 
 
 const App = (props) => {
- debugger;
+
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
@@ -23,12 +24,10 @@ const App = (props) => {
         <Navbar />
         <MainPage />
         <div className='app-wrapper-content'>
-          <Route path='/profile' render={() => <Profile />} />
-          <Route path='/dialogs' render={() => <DialogsContainer 
-          store={props.store}/>} /> 
-          <Route path='/posts' render={() => <Posts 
-          store={props.store}/>} />
-          <Route path='/friends' render={() => <Friends store={props.store.getState().friendsPage}/>} />
+          <Route path='/profile' render={() => <Profile />}/>
+          <Route path='/dialogs' render={() => <DialogsContainer />}/>
+          <Route path='/posts' render={() => <Posts />} />
+          <Route path='/friends' render={() => <FriendsContainer />} />
           <Route path='/groups' render={() => <Groups />} />
           <Route path='/forum' render={() => <Forum /> } />
           <Route path='/media' render={() => <Media />} />

@@ -2,11 +2,10 @@ import React from "react";
 import Friend from "./Friend/Friend";
 import classes from './Friends.module.css';
 
+const Friends = (props) => {
+  debugger;
 
-
-const Friends = ({store}) => {
-
-  let friendsElements = store.map(item => <Friend src={item.img} name={item.name} status={item.activity}/>);
+  let friendsElements = props.store.map(item => <Friend src={item.img} name={item.name} status={item.activity}/>);
 
   return (
   <div className={classes.container}>

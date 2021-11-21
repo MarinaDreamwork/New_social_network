@@ -8,7 +8,8 @@ debugger;
      <div className={classes.users}>
          <NavLink to={'/dialogs/' + props.id}>
           </NavLink>
-          {props.name}
+          
+         {props.name}
      </div>
   )
 }
