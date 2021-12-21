@@ -3,7 +3,6 @@ import { Route } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import Forum from './components/Forum/Forum';
-import Friends from './components/Friends/Friends';
 import Groups from './components/Groups/Groups';
 import Header from './components/Header/Header';
 import Media from './components/Media/Media';
@@ -13,6 +12,7 @@ import MainPage from './components/MainPage/MainPage';
 import Posts from './components/Posts/Posts';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import FriendsContainer from './components/Friends/FriendsContainer';
+import UsersContainer from './components/Users/UsersContainer';
 
 
 const App = (props) => {
@@ -31,6 +31,7 @@ const App = (props) => {
           <Route path='/groups' render={() => <Groups />} />
           <Route path='/forum' render={() => <Forum /> } />
           <Route path='/media' render={() => <Media />} />
+          <Route path='/users' render={() => <UsersContainer />} />
         </div>
       </div>
      </BrowserRouter>

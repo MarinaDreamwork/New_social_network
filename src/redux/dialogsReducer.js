@@ -19,20 +19,21 @@ const dialogsReducer = (state = initialState, action) => {
 
   switch(action.type) {
     case ADD_MESSAGE:
-      let newMessage = {
-        id: 4,
-        img: 'https://img.freepik.com/free-photo/close-up-shot-pretty-woman-with-perfect-teeth-dark-clean-skin-having-rest-indoors-smiling-happily-after-received-good-positive-news_273609-1248.jpg?size=626&ext=jpg',
-        text: state.newMessageText,
+      
+        return {
+          ...state,
+          messagesData: [...state.messagesData, {id: 4,
+            img: 'https://img.freepik.com/free-photo/close-up-shot-pretty-woman-with-perfect-teeth-dark-clean-skin-having-rest-indoors-smiling-happily-after-received-good-positive-news_273609-1248.jpg?size=626&ext=jpg',
+            text: state.newMessageText}],
+          newMessageText: '',
+        };
+    case UPDATE_NEW_MESSAGE_TEXT: 
+
+      return {
+        ...state,
+        newMessageText: action.newMessage
       };
-
-        state.messagesData.push(newMessage);
-        state.newMessageText = ''; 
-        return state;
-
-    case UPDATE_NEW_MESSAGE_TEXT:
-      state.newMessageText = action.newMessage;
-        return state;
-
+    
     default:
       return state;
   }

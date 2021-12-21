@@ -2,7 +2,7 @@ import s from './NewPost.module.css';
 import React from 'react';
   
 const NewPost = (props) => {
-  debugger;
+
   let newPostElement = React.createRef();
 
   let addNewPost = () => {
