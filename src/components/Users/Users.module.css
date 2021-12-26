@@ -3,3 +3,21 @@
   height: 100px;
   border-radius: 50%;
 }
+
+.pages {
+  display: flex;
+  justify-content: center;
+  
+  margin-right: 30px;
+}
+
+span {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 17px;
+  color: grey;
+}
+
+.selectedPage {
+  font-weight: bold;
+}

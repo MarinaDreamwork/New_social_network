@@ -1,9 +1,15 @@
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW'; 
 const SET_USERS = 'SET_USERS';
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+const TOGGLE_IS_LOADING = 'TOGGLE_IS_LOADING';
 
 let initialState = {
-  users: []
+  users: [],
+  pageSize: 2,
+  totalUsersCount: 10,
+  currentPage: 1,
+  isLoading: true
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -34,7 +40,19 @@ const usersReducer = (state = initialState, action) => {
       case SET_USERS: 
        return {
         ...state,
-        users: [...state.users, ...action.users]
+        users: [...action.users]
+      };
+
+      case SET_CURRENT_PAGE: 
+       return {
+        ...state,
+        currentPage: action.currentPage
+      };
+
+      case TOGGLE_IS_LOADING: 
+       return {
+        ...state,
+        isLoading: action.isLoading
       };
       
       default:
@@ -57,6 +75,18 @@ export const unfollowActionCreator = (userId) => {
 export const setUsersActionCreator = (users) => {
   return {
     type: SET_USERS, users
+  };
+};
+
+export const setCurrentPageActionCreator = (currentPage) => {
+  return {
+    type: SET_CURRENT_PAGE, currentPage
+  };
+};
+
+export const toggleIsLoadingActionCreator = (isLoading) => {
+  return {
+    type: TOGGLE_IS_LOADING, isLoading
   };
 };
 
