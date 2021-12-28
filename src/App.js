@@ -7,12 +7,12 @@ import Groups from './components/Groups/Groups';
 import Header from './components/Header/Header';
 import Media from './components/Media/Media';
 import Navbar from './components/Navbar/Navbar';
-import Profile from './components/Profile/Profile';
 import MainPage from './components/MainPage/MainPage';
 import Posts from './components/Posts/Posts';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import FriendsContainer from './components/Friends/FriendsContainer';
 import UsersContainer from './components/Users/UsersContainer';
+import ProfileContainer from './components/Profile/ProfileContainer';
 
 
 const App = (props) => {
@@ -24,7 +24,7 @@ const App = (props) => {
         <Navbar />
         <MainPage />
         <div className='app-wrapper-content'>
-          <Route path='/profile' render={() => <Profile />}/>
+          <Route path='/profile/:userId?' render={()=> <ProfileContainer/>}/>
           <Route path='/dialogs' render={() => <DialogsContainer />}/>
           <Route path='/posts' render={() => <Posts />} />
           <Route path='/friends' render={() => <FriendsContainer />} />

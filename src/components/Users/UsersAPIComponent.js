@@ -1,7 +1,6 @@
 import * as axios from "axios";
 import React from "react";
 import Users from "./Users";
-import preloader from '../../images/Hourglass.gif';
 import Preloader from "./Preloader";
 
 
@@ -26,7 +25,7 @@ class UsersAPIComponent extends React.Component {
 
       return <>  
           <Preloader isLoading={this.props.isLoading}/>
-          <Users totalUsersCount={this.props.totalUsersCount}
+          <Users    totalUsersCount={this.props.totalUsersCount}
                     pageSize={this.props.pageSize}
                     currentPage={this.props.currentPage}
                     onPageChange={this.onPageChange}

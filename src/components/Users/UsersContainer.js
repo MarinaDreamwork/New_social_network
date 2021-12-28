@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { followActionCreator, setCurrentPageActionCreator, setUsersActionCreator, toggleIsLoadingActionCreator, unfollowActionCreator } from "../../redux/usersReducer";
+import { follow, setCurrentPage, setUsers, toggleIsLoading, unfollow } from "../../redux/usersReducer";
 import UsersAPIComponent from "./UsersAPIComponent";
 
 let mapStateToProps = (state) => {
@@ -12,16 +12,24 @@ let mapStateToProps = (state) => {
   };
 };
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    follow: (userId) => {dispatch(followActionCreator(userId))},
-    unfollow: (userId) => {dispatch(unfollowActionCreator(userId))},
-    setUsers: (users) => {dispatch(setUsersActionCreator(users))},
-    setCurrentPage: (pageNumber) => {dispatch(setCurrentPageActionCreator(pageNumber))},
-    toggleIsLoading: (isLoading) => {dispatch(toggleIsLoadingActionCreator(isLoading))}
-  };
-};
+// ранее использовали mapDispatchToProps:
 
-const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersAPIComponent);
+// let mapDispatchToProps = (dispatch) => {
+//   return {
+//     follow: (userId) => {dispatch(followActionCreator(userId))},
+//     unfollow: (userId) => {dispatch(unfollowActionCreator(userId))},
+//     setUsers: (users) => {dispatch(setUsersActionCreator(users))},
+//     setCurrentPage: (pageNumber) => {dispatch(setCurrentPageActionCreator(pageNumber))},
+//     toggleIsLoading: (isLoading) => {dispatch(toggleIsLoadingActionCreator(isLoading))}
+//   };
+// };
+
+const UsersContainer = connect(mapStateToProps, {
+  follow,
+  unfollow,
+  setUsers,
+  setCurrentPage,
+  toggleIsLoading
+})(UsersAPIComponent);
 
 export default UsersContainer;

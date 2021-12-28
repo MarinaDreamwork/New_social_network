@@ -60,31 +60,31 @@ const usersReducer = (state = initialState, action) => {
   }
 };
 
-export const followActionCreator = (userId) => {
+export const follow = (userId) => {
   return {
     type: FOLLOW, userId
   };  
 };
 
-export const unfollowActionCreator = (userId) => {
+export const unfollow = (userId) => {
   return {
     type: UNFOLLOW, userId
   };
 };
 
-export const setUsersActionCreator = (users) => {
+export const setUsers = (users) => {
   return {
     type: SET_USERS, users
   };
 };
 
-export const setCurrentPageActionCreator = (currentPage) => {
+export const setCurrentPage = (currentPage) => {
   return {
     type: SET_CURRENT_PAGE, currentPage
   };
 };
 
-export const toggleIsLoadingActionCreator = (isLoading) => {
+export const toggleIsLoading = (isLoading) => {
   return {
     type: TOGGLE_IS_LOADING, isLoading
   };

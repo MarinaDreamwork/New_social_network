@@ -1,52 +1,27 @@
 import React from 'react';
+import Preloader from '../Users/Preloader';
 import classes from './Profile.module.css';
 
+
 const Profile = (props) => {
+  if(!props.userProfile) {
+      return <Preloader />
+  }
+
   return (
-        <div className={classes.profile}>
+    <div className={classes.profile}>
             <div className={classes.chapter}>
                 <div className={classes.heading}>
                 About Me <i class="fas fa-chevron-right"></i>
                 </div>
                 <div className={classes.subheading}>
-                    Full Name : 
+                    Full Name : {props.userProfile.name}
                 </div>
                 <div className={classes.subheading}>
-                    Skill :
+                    Company name : {props.userProfile.company.name}
                 </div>
                 <div className={classes.subheading}>
-                    Date of Birth :
-                </div>
-             </div>
-            <div className={classes.chapter}>
-                <div className={classes.heading}>
-                Biography <i class="fas fa-chevron-right"></i>
-                </div>
-                <div className={classes.text}>
-                    <p>Hello ! I’m Eileen K. Ruiz. Senior web developer of themelooks.com from last 5 years many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing</p> 
-                </div>
-             </div>
-            <div className={classes.chapter}>
-                <div className={classes.heading}>
-                Work Experience <i class="fas fa-chevron-right"></i>
-                </div>
-                <div className={classes.subheading}>
-                    Job Title 1 
-                    <p className={classes.text}>
-                         Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
-                    </p>
-                </div>
-                <div className={classes.subheading}>
-                    Job Title 2
-                    <p className={classes.text}>
-                        Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
-                    </p>
-                </div>
-                <div className={classes.subheading}>
-                    Job Title 3
-                    <p className={classes.text}>
-                        Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
-                    </p>
+                    Date of Birth : 2000/03/21
                 </div>
              </div>
             <div className={classes.chapter}>
@@ -54,17 +29,19 @@ const Profile = (props) => {
                 Contact <i class="fas fa-chevron-right"></i>
                 </div>
                 <div className={classes.subheading}>
-                    <p>Phone: <span>+1610-559-8246</span></p> 
+                    <p>Phone: <span>{props.userProfile.phone }</span></p> 
                 </div>
                 <div className={classes.subheading}>
-                    <p>E-mail: <span>demo@example.com</span></p> 
+                    <p>E-mail: <span>{props.userProfile.email}</span></p> 
                 </div>
                 <div className={classes.subheading}>
-                    <p>Address: <span>123 Lorem St., California, United States</span></p> 
+                    <p>Address: <span>{props.userProfile.address.city}, {props.userProfile.address.street}, {props.userProfile.address.suite}</span></p> 
                 </div>
              </div>
-        </div>  
+        </div>
   )
+  
+      
 }
 
 export default Profile;
